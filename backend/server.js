@@ -3,7 +3,7 @@
  const colors = require('colors')
  const {errorHandler} = require('./middleware/errorMiddleware.js')
  const connectDB = require('./config/db')
- const port = process.env.PORT || 5000
+ const port = process.env.PORT || 8000
 
  connectDB()
 
