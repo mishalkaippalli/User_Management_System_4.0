@@ -13,6 +13,6 @@
  app.use(express.urlencoded({extended: false}))
 
  app.use('/api/users', require('./routes/userRoutes')) 
- app.use('api/admin', require('./routes/adminRoutes.js')) 
+ app.use('/api/admin', require('./routes/adminRoutes.js')) 
 
  app.listen(port, () => console.log(`server running on port ${port}`))

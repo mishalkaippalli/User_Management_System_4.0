@@ -26,11 +26,19 @@ function Login() {
       toast.error(message)
     }
 
-    if (isSuccess || user) {
-      navigate('/')
+    // Check if user exists (from new login or already logged in)
+    if (user) {
+      if (user.role === 'admin') {
+        navigate('/admin/userlist'); // Redirect admins
+      } else {
+        navigate('/user/profile'); // Redirect regular users
+      }
     }
 
-    dispatch(reset())
+     // We should only reset if there was a success or error action
+    if (isSuccess || isError) {
+      dispatch(reset());
+    }
   }, [user, isError, isSuccess, message, navigate, dispatch])
 
   const onChange = (e) => {

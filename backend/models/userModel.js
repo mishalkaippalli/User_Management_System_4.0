@@ -20,6 +20,10 @@ const userSchema = mongoose.Schema({
       default: 'user',        
       required: true,
     },
+    profileImage: {
+      type: String,
+      default: '', // Default to an empty string
+    },
 
 },{
     timestamps: true

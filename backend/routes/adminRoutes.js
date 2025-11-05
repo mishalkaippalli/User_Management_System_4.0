@@ -10,6 +10,11 @@ const {
 
 const { protect } = require('../middleware/authMiddleware');
 const { admin } = require('../middleware/adminMiddleware');
+
+router.use((req, res, next) => {
+  console.log(`[ADMIN ROUTE HIT] ${req.method} ${req.originalUrl}`);
+  next();
+});
  
 
 // All routes in this file are protected and admin-only

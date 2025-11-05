@@ -6,6 +6,12 @@ import Register from './pages/Register'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
+// Import your new components
+import AdminRoute from './components/AdminRoute.jsx';
+import UserListScreen from './pages/adminPages/UserListScreen.jsx';
+import UserEditScreen from './pages/adminPages/UserEditScreen.jsx';
+import ProfileScreen from './pages/userPages/ProfileScreen.jsx'
+
 function App() {
   return (
     <>
@@ -16,6 +22,14 @@ function App() {
           <Route path="/" element={<Dashboard />}/>
           <Route path="/login" element={<Login />}/>
           <Route path="/register" element={<Register />}/>
+          <Route path="/user/profile" element={<ProfileScreen />}/>
+
+          {/* Admin Route  */}
+          <Route path="" element={<AdminRoute />}>
+            <Route path="/admin/userlist" element={<UserListScreen />} />
+            <Route path="/admin/user/:id/edit" element={<UserEditScreen />} />
+          </Route>
+          
         </Routes>
       </div>
     </Router>

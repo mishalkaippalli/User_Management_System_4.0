@@ -36,6 +36,7 @@ const getUserById = asyncHandler(async (req, res) => {
 // @route   POST /api/admin/users
 // @access  Private/Admin
 const createUser = asyncHandler(async (req, res) => {
+  console.log('inside createUser')
   const { name, email, password, role } = req.body;
 
   const userExists = await User.findOne({ email });
@@ -94,6 +95,7 @@ const updateUser = asyncHandler(async (req, res) => {
 // @route   DELETE /api/admin/users/:id
 // @access  Private/Admin
 const deleteUser = asyncHandler(async (req, res) => {
+  
   const user = await User.findById(req.params.id);
 
   if (user) {
